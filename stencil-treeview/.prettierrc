@@ -1,0 +1,17 @@
+{
+  "trailingComma": "es5",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "bracketSpacing": true,
+  "overrides": [
+    {
+      "files": ["*.json"],
+      "options": {
+        "tabWidth": 3
+      }
+    }
+  ]
+}

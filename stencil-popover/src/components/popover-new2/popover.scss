@@ -1,0 +1,183 @@
+
+:host {
+    display: block;
+}
+
+.popover-container-top {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    margin-bottom: 10px;
+    width: auto;
+    max-width: 276px;
+    z-index: 1060;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+  }
+  .popover-container-bottom {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    margin-top: 10px;
+    width: auto;
+    max-width: 276px;
+    z-index: 1060;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+  }
+
+  .popover-container-left {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    margin-right: 10px;
+    width: auto;
+    max-width: 276px;
+    z-index: 1060;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+  }
+  .popover-container-right {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    margin-left: 10px;
+    width: auto;
+    max-width: 276px;
+    z-index: 1060;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+  }
+  
+  .popover-content {
+    z-index: 1060;
+    background-color: white;
+    padding: 15px 14px;
+    border-radius: .3rem;
+  }
+  .popover-content p{
+    z-index: 1060;    
+    font-size: .875rem;
+    margin: 0;
+    word-wrap: break-word;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  .popover-container-top::before {
+    position: absolute;
+    left: 50%;
+    bottom: -11px;
+    margin-left: -11px;
+    content: "";
+    width: 0; 
+    height: 0; 
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-top: 11px solid rgba(0,0,0,.2);
+  }
+  .popover-container-top::after {
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    margin-left: -10px;
+    content: "";
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #fff;
+  }
+  .popover-container-bottom::before {
+    position: absolute;
+    left: 50%;
+    top: -11px;
+    margin-left: -11px;
+    content: "";
+    width: 0; 
+    height: 0; 
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-bottom: 11px solid rgba(0,0,0,.2);
+  }
+  .popover-container-bottom::after {
+    position: absolute;
+    left: 50%;
+    top: -10px;
+    margin-left: -10px;
+    content: "";
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+  }
+  .popover-container-right::before {
+    position: absolute;
+    top: 50%;
+    margin-top: -11px;
+    left: -11px;
+    content: "";
+    width: 0; 
+    height: 0; 
+    border-right: 11px solid rgba(0,0,0,.2);
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+  }
+  .popover-container-right::after {
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    left: -10px;
+    content: "";
+    width: 0; 
+    height: 0; 
+    border-right: 10px solid #fff;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+   .popover-container-left::before {
+    position: absolute;
+    top: 50%;
+    margin-top: -11px;
+    right: -11px;
+    content: "";
+    width: 0; 
+    height: 0; 
+    border-left: 11px solid rgba(0,0,0,.2);
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+  }
+  .popover-container-left::after {
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    right: -10px;
+    content: "";
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid #fff;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+  .hidden {
+    display: none;
+  }
+  .fade-in {
+    animation: fadeInAnimation 0.30s linear forwards;
+  }
+  .fade-out {
+    animation: fadeOutAnimation 0.30s linear forwards;
+  }
+  @keyframes fadeInAnimation {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes fadeOutAnimation {
+    0% { opacity: 1; }
+    100% { opacity: 0; height: 0; }
+  }

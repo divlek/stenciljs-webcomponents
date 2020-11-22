@@ -1,0 +1,114 @@
+/**
+* @prop --tf-treeview-item-header-focus-background-color: Background color of focused node
+* @prop --tf-treeview-item-header-hover-background-color: Background color of node when hovered over
+*/
+
+$treeview-item-header-focus-background-color: var(--tf-treeview-item-header-focus-background-color, rgba(205, 232, 255, 0.6));
+$treeview-item-header-hover-background-color: var(--tf-treeview-item-header-hover-background-color, rgba(205, 232, 255, 0.3));
+
+:host {
+  display: block;  
+}
+
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  user-select: none;
+  height: 2em;
+
+  > slot > *:first-child {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    flex: 1 1 0;
+  }
+
+  &.focus-node {
+    background-color: $treeview-item-header-focus-background-color;
+  }
+
+  &:hover {
+    background-color: $treeview-item-header-hover-background-color;
+  }
+}
+
+div[part='expand-icon'] {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  position: relative;
+  transform-origin: center center;
+  transition: all 0.25s linear;
+  margin-right: 4px;
+  cursor: pointer;
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    top: 0.1em;
+    left: 0.35em;
+    border-top: 0.4em solid transparent;
+    border-bottom: 0.4em solid transparent;
+    border-left: 0.4em solid currentColor;
+  }
+}
+
+div[part='children-panel'] {
+  transform-origin: top left;
+  padding-left: 8px;
+  overflow: hidden;
+  contain: content;
+  transition: all 0.3s ease-in-out;
+  max-height: 0;
+  opacity: 0;
+}
+
+
+div[part='loader'] {
+  margin: 2px 4px 2px 2px;
+  border: 2px solid #eeeeee;
+  border-radius: 50%;
+  border-top: 2px solid gray;
+  border-right: 2px solid gray;
+  width: 13px;
+  height: 13px;
+  -webkit-animation: spin 1s linear infinite; 
+  animation: spin 1s linear infinite;
+}
+
+// Restyle some parts when the element has the expanded attribute
+:host([expanded]) {
+  div[part='expand-icon'] {
+    transform: rotate(90deg);
+  }
+
+  div[part='children-panel'] {
+    max-height: 100%;
+    opacity: 1;
+  }
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+:host([leaf]) {
+  div[part='expand-icon'] {
+    cursor: default;
+    pointer-events: none;
+
+    &::after {
+      content: '';
+      display: none;
+    }
+  }
+}

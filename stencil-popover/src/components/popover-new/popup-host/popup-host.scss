@@ -1,0 +1,70 @@
+$popup-arrow-size: 9px;
+$popup-arrow-margin: 8px;
+$popup-arrow-ofset: -5px;
+$popup-border: .8px solid #999;
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1 }
+}
+
+tf-popup-host {
+  background: white;
+  padding: 6px 12px;
+  border: $popup-border;
+  border-radius: 4px;
+  //box-shadow: 0 0 6px rgba(0,0,0,0.4);
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.4));
+  animation: fadeIn .2s forwards;
+}
+
+tf-popup-host[show-arrow] {
+  >[x-arrow] {
+    background: white;
+    position: absolute;
+    width: $popup-arrow-size;
+    height: $popup-arrow-size;
+    border-top: $popup-border;
+    border-left: $popup-border;
+  }
+
+  &[x-placement="bottom"],
+  &[x-placement="bottom-start"],
+  &[x-placement="bottom-end"] { 
+    margin-top: $popup-arrow-margin;
+    [x-arrow] { 
+      top: $popup-arrow-ofset; 
+      transform: rotate(45deg);
+    }
+  }
+
+  &[x-placement="left"],
+  &[x-placement="left-start"],
+  &[x-placement="left-end"] { 
+    margin-right: $popup-arrow-margin; 
+    [x-arrow] { 
+      right: $popup-arrow-ofset; 
+      transform: rotate(135deg);
+    }
+  }
+
+  &[x-placement="top"],
+  &[x-placement="top-start"],
+  &[x-placement="top-end"] { 
+    margin-bottom: $popup-arrow-margin;
+    [x-arrow] { 
+      bottom: $popup-arrow-ofset; 
+      transform: rotate(-135deg);
+    } 
+  }
+
+  &[x-placement="right"],
+  &[x-placement="right-start"],
+  &[x-placement="right-end"] { 
+    margin-left: $popup-arrow-margin;
+    [x-arrow] { 
+      left: $popup-arrow-ofset;
+      transform: rotate(-45deg);
+    } 
+  }
+}
